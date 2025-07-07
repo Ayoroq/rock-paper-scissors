@@ -102,6 +102,7 @@ function displayFinalResult() {
       finalResult.textContent += "\nThe game is a tie!";
       finalContainer.classList.toggle("draw");
     }
+    roundNUmber.classList.toggle("hidden");
     final.classList.toggle("hidden");
     
   }
