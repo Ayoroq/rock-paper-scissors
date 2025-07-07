@@ -18,7 +18,7 @@ function getHumanChoice() {
   }
 
   // Inform the user if their input is invalid
-  console.log("Invalid choice. Please choose rock, paper, or scissors.")
+  console.log("Invalid choice. Please choose rock, paper, or scissors.");
   return null;
 }
 
@@ -28,46 +28,75 @@ let computerScore = 0;
 
 // Function to play a single round of the game
 function playRound(humanChoice, computerChoice) {
-    // Check for a tie
-    if (humanChoice === computerChoice) {
-        return "It's a tie!";
-    } 
-    // Check if the human wins
-    else if (
-        (humanChoice === "rock" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-        humanScore++;
-        return `You win! ${humanChoice} beats ${computerChoice}`;
-    } 
-    // Otherwise, the computer wins
-    else {
-        computerScore++;
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
-    }
+  // Check for a tie
+  if (humanChoice === computerChoice) {
+    return "That round is a tie!";
+  }
+  // Check if the human wins
+  else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    return `You win that round! ${humanChoice} beats ${computerChoice}`;
+  }
+  // Otherwise, the computer wins
+  else {
+    computerScore++;
+    return `You lose that round! ${computerChoice} beats ${humanChoice}`;
+  }
 }
 
-// Function to play the full game (5 rounds)
-function playGame(){
-    for (let i = 0; i < 5; i++) {
-        console.log(`Round ${i + 1}`)
-        // Play a round and display the result
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log('--------------------------------\n')
-    }
-    // Display final scores and the winner
-    console.log("Game over!");
-    console.log(`Your score: ${humanScore}`);
-    console.log(`Computer's score: ${computerScore}`);
+// get the DOM elements needed to display result
+const humanScoreElement = document.querySelector("#human-score");
+const computerScoreElement = document.querySelector("#computer-score");
+const roundResult = document.querySelector("#round-result");
+const finalResult = document.querySelector("#final-result");
+
+// get value from the round selector
+const roundSelector = document.querySelector(".game-rounds");
+let gameRounds = roundSelector.value;
+
+// add event listener for when the rounds change
+roundSelector.addEventListener("change", (event) => {
+  gameRounds = Number(event.target.value);
+  roundSelector.disabled = true;
+});
+
+let roundsPlayed = 0;
+//
+
+function afterClick(event) {
+  const humanChoice = event.target.id;
+  const computerChoice = getComputerChoice();
+  const result = playRound(humanChoice, computerChoice);
+
+  humanScoreElement.textContent = humanScore;
+  computerScoreElement.textContent = computerScore;
+  roundResult.textContent = result;
+
+  roundsPlayed++;
+  console.log(result);
+  console.log(`Human Score: ${humanScore}`);
+  console.log(`Computer Score: ${computerScore}`);
+  console.log(`Game Rounds: ${gameRounds}`);
+  console.log(`Rounds Played: ${roundsPlayed}`);
+  displayFinalResult();
+}
+
+function displayFinalResult() {
+  if (roundsPlayed === gameRounds) {
     if (humanScore > computerScore) {
-        console.log("You win the game!");
+      finalResult.textContent += "\nYou win the game!";
     } else if (humanScore < computerScore) {
-        console.log("You lose the game!");
+      finalResult.textContent += "\nYou lose the game!";
     } else {
-        console.log("It's a tie!");
+      finalResult.textContent += "\nThe game is a tie!";
     }
+  }
 }
 
-// Start
-playGame()
+// function to log to console when the buttons are clicked
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => button.addEventListener("click", afterClick));

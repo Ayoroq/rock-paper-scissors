@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(196, 223, 232);
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  flex: 1;
+  width: 100%;
+  display: flex;
+}
+
+.header .container {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header .container h1 {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.header .container .how-to-play{
+    width: 100%;
+    line-height: 1.8;
+}
+
+ul{
+    list-style: none;
+    padding: 10px
+}
+
+.rounds {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rounds .container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.rounds .container .game-rounds {
+  padding: 10px;
+  background-color: lightcoral;
+  border: transparent;
+}
+
+.buttons {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  background-color: darkblue;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons .container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.buttons .container button {
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.result {
+  flex: 1;
+  width: 100%;
+  background-color: pink;
+}
+
+.result .container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.result .container .result-text {
+  display: flex;
+  text-align: center;
+  background-color: green;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.result .container .result-text p {
+  margin: 10px;
+  font-size: large;
+}
+span {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.final {
+  z-index: 100;
+  flex: 1;
+  width: 100%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 25%;
+  display: block;
+}
+
+.final .container {
+  white-space: pre-line;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 400px;
+  min-height: 200px;
+}
+
+.final .container p {
+  flex: 1;
+  text-align: center;
+  background-color: blue;
+}
+
+.final .container button {
+  border: transparent;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
