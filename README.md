@@ -1,48 +1,34 @@
 # Rock Paper Scissors
 
-A simple Rock Paper Scissors game built with JavaScript for [The Odin Project](https://www.theodinproject.com/) Foundations curriculum.
+A web-based Rock Paper Scissors game with a graphical user interface, built with HTML, CSS, and JavaScript for [The Odin Project](https://www.theodinproject.com/) Foundations curriculum.
 
 ## Features
 
-- Play 5 rounds against the computer.
-- Scores are tracked and displayed after each round.
-- Winner is announced at the end.
-- Can be run in the browser (with `window.prompt`) or in Node.js (with `prompt-sync`).
+-   **Interactive UI:** A clean and simple interface to play the game directly in your browser.
+-   **Selectable Rounds:** Choose to play a game of 3, 5, 7, or 10 rounds.
+-   **Real-time Score Tracking:** Watch the scores update after each round.
+-   **Round Results:** Get immediate feedback on who won each round.
+-   **Final Winner Declaration:** A final screen announces the game's winner, loser, or if it's a tie.
+-   **Celebration!** Enjoy a confetti explosion when you win the game.
+-   **Restart Option:** Easily start a new game with a single click.
 
 ## How to Play
 
-### In the Browser
-
-1. Open `index.html` in your browser.
-2. When prompted, enter your choice: `rock`, `paper`, or `scissors`.
-3. The game will play 5 rounds and display the results in the browser console.
-
-### In Node.js
-
-1. Install [Node.js](https://nodejs.org/).
-2. Install the `prompt-sync` package:
-   ```sh
-   npm install prompt-sync
-   ```
-3. Uncomment the following line at the top of `rock-paper-scissors.js`:
-   ```js
-   const prompt = require("prompt-sync")({sigint: true});
-   ```
-4. Run the game:
-   ```sh
-   node rock-paper-scissors.js
-   ```
+1.  Open the `index.html` file in your favorite web browser.
+2.  On the main screen, you will see the game instructions.
+3.  Select the number of rounds you wish to play from the dropdown menu.
+4.  The game interface will appear, and the first round will begin.
+5.  Click on the "Rock", "Paper", or "Scissors" button to make your choice.
+6.  The computer will make its choice, and the result of the round will be displayed, along with the updated scores.
+7.  Continue playing until all rounds are complete.
+8.  A final message will pop up, declaring the overall winner.
+9.  Click the "Restart Game" button to play again from the beginning.
 
 ## File Overview
 
-- `rock-paper-scissors.js` — Main game logic.
-- `index.html` — Loads the game in the browser.
-
-## Notes
-
-- By default, the code uses `prompt`, which works in browsers.  
-  For Node.js, use `prompt-sync` as described above.
-- All game output is shown in the browser's console or the terminal.
+-   `index.html` — The main HTML file for the game's structure and content.
+-   `style.css` — The stylesheet for all the game's visuals.
+-   `rock-paper-scissors.js` — The JavaScript file containing all the game logic and DOM manipulation.
 
 ## License
 
