@@ -53,16 +53,15 @@ const humanScoreElement = document.querySelector("#human-score");
 const computerScoreElement = document.querySelector("#computer-score");
 const roundResult = document.querySelector("#round-result");
 const finalResult = document.querySelector("#final-result");
+const currentRound = document.querySelector("#current-round");
+const roundSelector = document.querySelector("#game-rounds");
+const main = document.querySelector("#main");
+const gameContainer = document.querySelector("#game-container");
+const final = document.querySelector("#final");
+
 
 // get value from the round selector
-const roundSelector = document.querySelector(".game-rounds");
 let gameRounds = roundSelector.value;
-
-// add event listener for when the rounds change
-roundSelector.addEventListener("change", (event) => {
-  gameRounds = Number(event.target.value);
-  roundSelector.disabled = true;
-});
 
 let roundsPlayed = 0;
 //
@@ -83,8 +82,10 @@ function afterClick(event) {
   console.log(`Game Rounds: ${gameRounds}`);
   console.log(`Rounds Played: ${roundsPlayed}`);
   displayFinalResult();
+  displayCurrentRound();
 }
 
+// function to display the final result
 function displayFinalResult() {
   if (roundsPlayed === gameRounds) {
     if (humanScore > computerScore) {
@@ -94,9 +95,26 @@ function displayFinalResult() {
     } else {
       finalResult.textContent += "\nThe game is a tie!";
     }
+    final.classList.toggle("hidden");
   }
 }
 
+function displayCurrentRound() {
+  currentRound.textContent = roundsPlayed + 1;
+}
+
 // function to log to console when the buttons are clicked
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".buttons");
 buttons.forEach((button) => button.addEventListener("click", afterClick));
+
+const restartButton = document.querySelector(".restart");
+restartButton.addEventListener("click", () => {
+  location.reload();
+});
+
+// add event listener for when the rounds change
+roundSelector.addEventListener("change", (event) => {
+  gameRounds = Number(event.target.value);
+  main.classList.toggle("hidden");
+  gameContainer.classList.toggle("hidden");
+});

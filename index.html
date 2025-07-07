@@ -8,11 +8,15 @@
   </head>
   <body>
     <header class="header">
+      <h1>Welcome To Rock Paper Scissors Game</h1>
+    </header>
+    <main class="main" id="main">
       <div class="container">
-        <h1>Welcome To Rock Paper Scissors Game</h1>
         <div class="how-to-play">
           <h3>How to Play</h3>
-          <p>Select the number of rounds you would like to play to start the game.
+          <p>
+            Select the number of rounds you would like to play to start the
+            game.
           </p>
           <p>
             Choose Rock, Paper, or Scissors to compete against the computer.
@@ -26,46 +30,59 @@
             The player with the most wins after the selected number of rounds is
             the winner!
           </p>
+          <br />
+          <br />
+          <em
+            >Note: The game will begin automatically once you select a
+            difficulty level.</em
+          >
+        </div>
+        <div class="select-round">
+          <label for="game-rounds"
+            >How many rounds would you like to play?
+          </label>
+          <select name="game-rounds" class="game-rounds" id="game-rounds">
+            <option value="">--Please Select a Number--</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+          </select>
         </div>
       </div>
-    </header>
-    <section class="rounds">
-      <div class="container">
-        <label for="game-rounds"
-          >How many rounds would you like to play?
-        </label>
-        <select name="game-rounds" class="game-rounds" id="game-rounds">
-          <option value="">--Please Select a Number--</option>
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="7">7</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-    </section>
-    <section class="result hidden">
-      <div class="container">
-        <div class="result-text">
-          <p>Human Score<span id="human-score" class="human-score">0</span></p>
+    </main>
+    <div class="game-container hidden" id="game-container">
+      <section class="number-of-rounds" id="number-of-rounds">
+        <div class="container">
+          <p>Round <span id="current-round" class="current-round">1</span></p>
         </div>
-        <div class="result-text">
-          <p>
-            Computer Score<span id="computer-score" class="computer-score"
-              >0</span
-            >
-          </p>
+      </section>
+      <section class="result">
+        <div class="container">
+          <div class="result-text">
+            <p>
+              Human Score<span id="human-score" class="human-score">0</span>
+            </p>
+          </div>
+          <div class="result-text">
+            <p>
+              Computer Score<span id="computer-score" class="computer-score"
+                >0</span
+              >
+            </p>
+          </div>
+          <p class="round-result" id="round-result"></p>
         </div>
-        <p class="round-result" id="round-result"></p>
-      </div>
-    </section>
-    <section class="buttons hidden">
-      <div class="container">
-        <button id="rock" class="rock">Rock</button>
-        <button id="paper" class="paper">Paper</button>
-        <button id="scissors" class="scissors">Scissors</button>
-      </div>
-    </section>
-    <section class="final hidden">
+      </section>
+      <section class="buttons">
+        <div class="container">
+          <button id="rock" class="rock">Rock</button>
+          <button id="paper" class="paper">Paper</button>
+          <button id="scissors" class="scissors">Scissors</button>
+        </div>
+      </section>
+    </div>
+    <section class="final hidden" id="final">
       <div class="container">
         <p id="final-result" class="final-result">
           Game Over! Some more text to see what this is going to look like

@@ -13,55 +13,19 @@ body {
   align-items: center;
 }
 
-.header {
-  flex: 1;
-  width: 100%;
-  display: flex;
-}
-
-.header .container {
-  width: 100%;
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  flex-direction: column;
-}
-
-.header .container h1 {
-  padding-top: 40px;
-  text-align: center;
-}
-
-.header .container .how-to-play{
+.header{
+    text-align: center;
     width: 100%;
-    line-height: 1.8;
+    padding: 50px;
+}
+
+.how-to-play{
+    line-height: 1.5;
 }
 
 ul{
     list-style: none;
-    padding: 10px
-}
-
-.rounds {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rounds .container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.rounds .container .game-rounds {
-  padding: 10px;
-  background-color: lightcoral;
-  border: transparent;
+    padding: 10px 10px 10px 20px;
 }
 
 .buttons {
@@ -113,7 +77,7 @@ ul{
   margin: 10px;
   font-size: large;
 }
-span {
+.result .container .result-text span {
   display: flex;
   width: 150px;
   height: 150px;
