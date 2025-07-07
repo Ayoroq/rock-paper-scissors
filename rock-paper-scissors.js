@@ -93,7 +93,6 @@ function displayFinalResult() {
     if (humanScore > computerScore) {
       finalResult.textContent += "\nYou win the game!";
       finalContainer.classList.toggle("win");
-      roundNUmber.classList.toggle("hidden");
       confetti();
     } else if (humanScore < computerScore) {
       finalResult.textContent += "Game over!\n\nYou lose the game!";
@@ -104,7 +103,6 @@ function displayFinalResult() {
     }
     roundNUmber.classList.toggle("hidden");
     final.classList.toggle("hidden");
-    
   }
 }
 
