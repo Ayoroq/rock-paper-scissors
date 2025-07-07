@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(196, 223, 232);
+  background-color: rgb(153, 188, 169);
   font-family: sans-serif;
   height: 100vh;
   display: flex;
@@ -13,34 +13,58 @@ body {
   align-items: center;
 }
 
-.header{
-    text-align: center;
-    width: 100%;
-    padding: 50px;
+.header {
+  text-align: center;
+  width: 100%;
+  padding: 50px;
 }
 
-.how-to-play{
-    line-height: 1.5;
+.how-to-play {
+  line-height: 1.5;
 }
 
-ul{
-    list-style: none;
-    padding: 10px 10px 10px 20px;
+ul {
+  list-style: none;
+  padding: 10px 10px 10px 20px;
+}
+
+.main {
+  flex: 1;
+}
+
+.main .select-round {
+  padding: 50px;
+}
+
+.main .select-round .game-rounds {
+  padding: 5px;
+  background-color: cornflowerblue;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.number-of-rounds .container {
+  text-align: center;
+  font-size: 30px;
 }
 
 .buttons {
   flex: 1;
-  width: 100%;
+  width: max-content;
   display: flex;
-  background-color: darkblue;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 .buttons .container {
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   justify-content: space-around;
 }
@@ -52,10 +76,13 @@ ul{
   font-weight: bold;
 }
 
+button:hover {
+  background-color: rgb(33, 123, 183);
+}
+
 .result {
   flex: 1;
   width: 100%;
-  background-color: pink;
 }
 
 .result .container {
@@ -63,12 +90,12 @@ ul{
   justify-content: center;
   gap: 20px;
   align-items: center;
+  flex-direction: column;
 }
 
 .result .container .result-text {
   display: flex;
   text-align: center;
-  background-color: green;
   margin: 10px;
   border-radius: 20px;
 }
@@ -79,34 +106,57 @@ ul{
 }
 .result .container .result-text span {
   display: flex;
-  width: 150px;
+  width: 120px;
   height: 150px;
   justify-content: center;
   align-items: center;
   font-size: 80px;
   font-weight: bold;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(252, 240, 240);
+}
+.human-score {
+  color: green;
+}
+.computer-score {
+  color: red;
+}
+.win{
+    background-color: green;
+}
+.lose{
+  background-color: red;
+}
+.draw{
+  background-color: yellow;
+}
+
+.round-result {
+  font-size: 20px;
 }
 
 .final {
-  z-index: 100;
-  flex: 1;
-  width: 100%;
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-top: 25%;
-  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(130, 127, 127, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .final .container {
   white-space: pre-line;
-  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  gap: 20px;
   padding: 10px;
   margin: 0 auto;
   max-width: 400px;
@@ -116,7 +166,7 @@ ul{
 .final .container p {
   flex: 1;
   text-align: center;
-  background-color: blue;
+  font-size: 34px;
 }
 
 .final .container button {

@@ -1,6 +1,9 @@
 // Import the prompt-sync module to allow user input from the terminal
 //const prompt = require("prompt-sync")({sigint: true});
 
+// Initialize js-confetti
+const jsConfetti = new JSConfetti()
+
 // Array of possible choices for the game
 const choices = ["rock", "paper", "scissors"];
 
@@ -58,6 +61,10 @@ const roundSelector = document.querySelector("#game-rounds");
 const main = document.querySelector("#main");
 const gameContainer = document.querySelector("#game-container");
 const final = document.querySelector("#final");
+const finalContainer = document.querySelector("#final-container");
+const roundNUmber = document.querySelector("#number-of-rounds-container");
+
+
 
 
 // get value from the round selector
@@ -76,11 +83,6 @@ function afterClick(event) {
   roundResult.textContent = result;
 
   roundsPlayed++;
-  console.log(result);
-  console.log(`Human Score: ${humanScore}`);
-  console.log(`Computer Score: ${computerScore}`);
-  console.log(`Game Rounds: ${gameRounds}`);
-  console.log(`Rounds Played: ${roundsPlayed}`);
   displayFinalResult();
   displayCurrentRound();
 }
@@ -90,13 +92,40 @@ function displayFinalResult() {
   if (roundsPlayed === gameRounds) {
     if (humanScore > computerScore) {
       finalResult.textContent += "\nYou win the game!";
+      finalContainer.classList.toggle("win");
+      roundNUmber.classList.toggle("hidden");
+      confetti();
     } else if (humanScore < computerScore) {
-      finalResult.textContent += "\nYou lose the game!";
+      finalResult.textContent += "Game over!\n\nYou lose the game!";
+      finalContainer.classList.toggle("lose");
     } else {
       finalResult.textContent += "\nThe game is a tie!";
+      finalContainer.classList.toggle("draw");
     }
     final.classList.toggle("hidden");
+    
   }
+}
+
+function confetti(){
+     jsConfetti.addConfetti({
+                confettiColors: [
+                    'blue',
+                    'red',
+                    'green',
+                    'yellow',
+                    'orange',
+                ],
+                confettiNumber: 1000,
+                confettiDuration: 50000,
+                confettiParticleShape: [
+                    'circle',
+                    'square',
+                    'triangle',
+                    'star',
+                    'heart'
+                ]
+            })
 }
 
 function displayCurrentRound() {
@@ -104,7 +133,7 @@ function displayCurrentRound() {
 }
 
 // function to log to console when the buttons are clicked
-const buttons = document.querySelectorAll(".buttons");
+const buttons = document.querySelectorAll(".buttons button");
 buttons.forEach((button) => button.addEventListener("click", afterClick));
 
 const restartButton = document.querySelector(".restart");
